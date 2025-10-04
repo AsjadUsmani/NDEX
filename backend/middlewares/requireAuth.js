@@ -7,7 +7,7 @@ const requireAuth = async (req, res, next) => {
     if (!token) return res.status(401).json({ error: "Not authenticated" });
 
     const payload = verifyToken(token);
-    const user = await userModel.findById(payload.id).select("-hashedPassword");
+    const user = await userModel.findById(payload.id).select("-password");
     if (!user) return res.status(401).json({ error: "User not found" });
     req.user = user;
     next();

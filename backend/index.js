@@ -7,6 +7,7 @@ import cors from "cors";
 import authRouter from "./routes/auth.js";
 import userRouter from "./routes/user.js";
 import connectDB from "./utils/db.js";
+import queryRouter from "./routes/query.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -32,6 +33,7 @@ app.get("/", (req, res) => res.json({ ok: true, service: "backend" }));
 // Mount routers (use, not get)
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
+app.use("/api/query", queryRouter);
 
 app.listen(PORT, async () => {
   await connectDB();
