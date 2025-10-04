@@ -1,0 +1,4 @@
+fastapi
+uvicorn
+pydantic
+# add your LLM SDK (openai, etc.) later
