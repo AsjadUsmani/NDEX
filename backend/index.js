@@ -8,6 +8,7 @@ import authRouter from "./routes/auth.js";
 import userRouter from "./routes/user.js";
 import connectDB from "./utils/db.js";
 import queryRouter from "./routes/query.js";
+import generateRouter from "./routes/generate.js";
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,7 @@ app.get("/", (req, res) => res.json({ ok: true, service: "backend" }));
 app.use("/api/auth", authRouter);
 app.use("/api/user", userRouter);
 app.use("/api/query", queryRouter);
+app.use("/api/generate", generateRouter);
 
 app.listen(PORT, async () => {
   await connectDB();
